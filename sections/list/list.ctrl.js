@@ -1,5 +1,8 @@
-angular.module('app').controller('list.ctrl', function (countries) {
+angular.module('app').controller('list.ctrl', function (countries,$location) {
     var vm = this;
     vm.countries=countries;
-    console.log(vm.countries);
+
+    vm.loadCountry=function(country){
+          a=0;
+    };
 });
