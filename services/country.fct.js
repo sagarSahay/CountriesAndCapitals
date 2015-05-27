@@ -18,6 +18,7 @@ angular.module('app').factory('CountriesFactory', function ($http) {
             }).error(function (error) {
                 result = error;
             });
-        }
+        },
+        "country":{}
     }
 })

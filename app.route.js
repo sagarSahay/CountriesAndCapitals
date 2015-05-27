@@ -19,5 +19,9 @@ angular.module('app.route', ['ngRoute'])
             templateUrl: './sections/welcome/welcome.tpl.html',
             controller: 'welcome.ctrl',
             controllerAs: 'ctrl'
+        }).when('/:country/capital',{
+            templateUrl:'./sections/country/country.tpl.html',
+            controller: 'country.ctrl',
+            controllerAs:'ctrl'
         }).otherwise('/')
     })
