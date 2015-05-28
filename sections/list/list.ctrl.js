@@ -2,7 +2,7 @@ angular.module('app').controller('list.ctrl', function (countries,$scope,$locati
     var vm = this;
     vm.countries=countries;
 
-    $scope.loadCountry=function(country){
+    vm.loadCountry=function(country){
         CountriesFactory.country=country;
         $location.path('/'+country.countryCode+'/capital')
     };

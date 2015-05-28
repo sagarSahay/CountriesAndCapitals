@@ -11,7 +11,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="country in ctrl.countries.geonames"
-        ng-click="loadCountry(country)">
+        ng-click="ctrl.loadCountry(country)">
         <td>{{country.countryName}}</td>
         <td>{{country.countryCode}}</td>
         <td>{{country.capital}}</td>

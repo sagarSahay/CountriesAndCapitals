@@ -1,1 +1,27 @@
-<p>{{ctrl.country.countryName}}</p>
+<div class="container">
+
+    <div class="row">
+        <h1>{{ctrl.country.countryName}}</h1>
+    </div>
+    <div class="row">
+        Population of Country: {{ctrl.country.population}}
+    </div>
+    <div class="row">
+                         Area: {{ctrl.country.areaInSqKm}}
+    </div>
+    <div class="row">
+                      Capital: {{ctrl.country.capital}}
+    </div>
+    <div class="row">
+        Population of Capital: {{ctrl.country.population}}
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-1">
+            <button ng-click="goHome()" >Home</button>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-1">
+            <button ng-click="goList()">List</button>
+        </div>
+    </div>
+</div>

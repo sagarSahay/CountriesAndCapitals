@@ -1,7 +1,19 @@
 /**
  * Created by s.sahay on 27/05/2015.
  */
-angular.module('app').controller('country.ctrl', function (CountriesFactory) {
+angular.module('app').controller('country.ctrl', function (CountriesFactory,$location,$scope) {
     var vm = this;
     vm.country=CountriesFactory.country;
+
+    vm.countryDetail= CountriesFactory.searchForCapitalPopulation(vm.country.countryCode,vm.country.countryName,vm.country.capital)
+        .then(function(response){
+            console.log(response);
+        });
+
+    $scope.goHome=function(){
+        $location.path('/');
+    };
+    $scope.goList=function(){
+        $location.path('/list');
+    };
 });

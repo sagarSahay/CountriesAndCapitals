@@ -12,13 +12,39 @@ angular.module('app').factory('CountriesFactory', function ($http) {
             return $http({
                 method: 'JSONP',
                 url: url,
-                params: request
+                params: request,
+                cache:true
             }).success(function (response) {
                 result = response;
             }).error(function (error) {
                 result = error;
             });
         },
-        "country":{}
+        "country":{} ,
+
+        'searchForCapitalPopulation':function(countryCode,name,q){
+            var url='http://api.geonames.org/searchJSON'
+            var request = {
+                callback: "JSON_CALLBACK",
+                username:'sagar1986',
+                maxRows:10,
+                name:name,
+                countryCode:countryCode ,
+                q:q
+
+            };
+            return $http({
+                method: 'JSONP',
+                url: url,
+                params:request
+
+            }).success(function (response) {
+                result = response;
+            }).error(function (error) {
+                result = error;
+            });
+
+        }
+
     }
 })
