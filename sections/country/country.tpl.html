@@ -13,15 +13,23 @@
                       Capital: {{ctrl.country.capital}}
     </div>
     <div class="row">
-        Population of Capital: {{ctrl.country.population}}
+        Population of Capital: {{ctrl.capitalPopulation}}
+    </div>
+
+    <div class="row">
+        <img src="http://www.geonames.org/flags/x/{{ctrl.country.countryCode | lowercase}}.gif" />
+    </div>
+
+    <div class="row">
+        <img id='myImage' src="http://www.geonames.org/img/country/250/{{ctrl.country.countryCode}}.png" />
     </div>
 
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-1">
-            <button ng-click="goHome()" >Home</button>
+            <button ng-click="ctrl.goHome()" >Home</button>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-1">
-            <button ng-click="goList()">List</button>
+            <button ng-click="ctrl.goList()">List</button>
         </div>
     </div>
 </div>

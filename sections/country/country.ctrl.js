@@ -5,15 +5,16 @@ angular.module('app').controller('country.ctrl', function (CountriesFactory,$loc
     var vm = this;
     vm.country=CountriesFactory.country;
 
-    vm.countryDetail= CountriesFactory.searchForCapitalPopulation(vm.country.countryCode,vm.country.countryName,vm.country.capital)
+    vm.capitalPopulation= CountriesFactory.searchForCapitalPopulation(vm.country.countryCode,vm.country.countryName,vm.country.capital)
         .then(function(response){
             console.log(response);
+            return response.data.geonames[0].population;
         });
 
-    $scope.goHome=function(){
+    vm.goHome=function(){
         $location.path('/');
     };
-    $scope.goList=function(){
+    vm.goList=function(){
         $location.path('/list');
     };
 });

@@ -27,7 +27,7 @@ angular.module('app').factory('CountriesFactory', function ($http) {
             var request = {
                 callback: "JSON_CALLBACK",
                 username:'sagar1986',
-                maxRows:10,
+                maxRows:2,
                 name:name,
                 countryCode:countryCode ,
                 q:q
