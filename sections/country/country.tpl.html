@@ -25,6 +25,13 @@
     </div>
 
     <div class="row">
+        <div class="col-md-4" ng-repeat="obj in ctrl.neighbours.geonames"  >
+            <p >{{ctrl.neighbours.geonames}}</p>
+        </div>
+
+    </div>
+
+    <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-1">
             <button ng-click="ctrl.goHome()" >Home</button>
         </div>
