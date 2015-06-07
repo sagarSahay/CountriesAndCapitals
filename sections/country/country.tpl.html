@@ -3,40 +3,45 @@
     <div class="row">
         <h1>{{ctrl.country.countryName}}</h1>
     </div>
-    <div class="row">
-        Population of Country: {{ctrl.country.population}}
+    <div class="row top-buffer">
+        Population of Country: {{ctrl.country.population | number}}
     </div>
-    <div class="row">
-                         Area: {{ctrl.country.areaInSqKm}}
+    <div class="row top-buffer">
+        Area: {{ctrl.country.areaInSqKm | number}}
     </div>
-    <div class="row">
-                      Capital: {{ctrl.country.capital}}
+    <div class="row top-buffer">
+        Capital: {{ctrl.country.capital}}
     </div>
-    <div class="row">
-        Population of Capital: {{ctrl.capitalPopulation}}
-    </div>
-
-    <div class="row">
-        <img src="http://www.geonames.org/flags/x/{{ctrl.country.countryCode | lowercase}}.gif" />
+    <div class="row top-buffer">
+        Population of Capital: {{ctrl.capitalPopulation|number}}
     </div>
 
-    <div class="row">
-        <img id='myImage' src="http://www.geonames.org/img/country/250/{{ctrl.country.countryCode}}.png" />
-    </div>
-
-    <div class="row">
-        <div class="col-md-4" ng-repeat="obj in ctrl.neighbours.geonames"  >
-            <p >{{ctrl.neighbours.geonames}}</p>
+    <div class="row top-buffer">
+        <div class="col-md-1">
+            Neighbours:
         </div>
-
+        <div class="col-md-1" ng-repeat="obj in ctrl.neighbours">
+            <a ng-click="ctrl.changeCountry(obj)">{{obj.countryName}}</a>
+        </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-1">
-            <button ng-click="ctrl.goHome()" >Home</button>
+    <div class="row top-buffer">
+        <div class="col-md-8">
+            <img src="http://www.geonames.org/flags/x/{{ctrl.country.countryCode | lowercase}}.gif"/>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-1">
-            <button ng-click="ctrl.goList()">List</button>
+        <div class="col-md-4">
+            <img id='myImage' src="http://www.geonames.org/img/country/250/{{ctrl.country.countryCode}}.png"/>
+        </div>
+    </div>
+
+    <div class="row top-buffer">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ng-click="ctrl.goHome()">Home</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ng-click="ctrl.goList()">List</button>
+            </div>
         </div>
     </div>
 </div>

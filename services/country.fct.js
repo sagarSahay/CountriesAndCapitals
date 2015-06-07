@@ -5,9 +5,10 @@ angular.module('app').factory('CountriesFactory', function ($http) {
     var result = null;
     return {
         'getAll': function () {
-            var url = ' http://api.geonames.org/countryInfoJSON?username=sagar1986';
+            var url = ' http://api.geonames.org/countryInfoJSON';
             var request = {
-                callback: "JSON_CALLBACK"
+                callback: "JSON_CALLBACK",
+                username: 'sagar1986'
             };
             return $http({
                 method: 'JSONP',
@@ -27,9 +28,7 @@ angular.module('app').factory('CountriesFactory', function ($http) {
             var request = {
                 callback: "JSON_CALLBACK",
                 username: 'sagar1986',
-                maxRows: 2,
-                name: name,
-                countryCode: countryCode,
+                maxRows: 1,
                 q: q
 
             };
@@ -38,10 +37,8 @@ angular.module('app').factory('CountriesFactory', function ($http) {
                 url: url,
                 params: request
 
-            }).success(function (response) {
-                result = response;
-            }).error(function (error) {
-                result = error;
+            }).then(function (response) {
+                return response.data.geonames[0].population;
             });
 
         },
@@ -58,10 +55,25 @@ angular.module('app').factory('CountriesFactory', function ($http) {
                 url: url,
                 params: request
 
-            }).success(function (response) {
-                result = response;
-            }).error(function (error) {
-                result = error;
+            }).then(function (response) {
+                return  response.data.geonames;
+            });
+        } ,
+
+        'getIndividualCountry' :function(countryCode){
+            var url='http://api.geonames.org/countryInfoJSON';
+            var request = {
+                callback: "JSON_CALLBACK",
+                username: 'sagar1986',
+                country: countryCode
+            };
+            return $http({
+                method: 'JSONP',
+                url: url,
+                params: request
+
+            }).then(function (response) {
+                return  response;
             });
         }
 

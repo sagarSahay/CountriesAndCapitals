@@ -14,9 +14,9 @@
         ng-click="ctrl.loadCountry(country)">
         <td>{{country.countryName}}</td>
         <td>{{country.countryCode}}</td>
-        <td>{{country.capital}}</td>
-        <td>{{country.areaInSqKm}}</td>
-        <td>{{country.population}}</td>
+        <td>{{country.capital |number}}</td>
+        <td>{{country.areaInSqKm | number}}</td>
+        <td>{{country.population | number}}</td>
         <td>{{country.continentName}}</td>
     </tr>
     </tbody>
